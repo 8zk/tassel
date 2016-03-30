@@ -1,0 +1,259 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+body {
+    font-family: "游ゴシック","YuGothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+    color: #333;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+img {
+    vertical-align: middle;
+}
+.clearfix:after {
+    clear: both;
+    display: block;
+    content: '';
+}
+
+.title {
+    display: table-cell;
+    font-family: 'Verdana';
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    vertical-align: middle;
+}
+.main {
+    width: 100%;
+}
+.main-visual {
+    display: table;
+    background-image: url(../images/book2.png);
+    width: 100%;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+}
+.main-contents {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 880px;
+}
+.main-list {
+    text-align: center;
+    font-size: 0;
+}
+.main-list__item {
+    display: inline-block;
+    margin: 10px;
+    width: 200px;
+    height: 320px;
+    border: 1px #ccc solid;
+    box-sizing: border-box;
+    transition: background-color .3s linear;
+}
+.main-list__item:hover {
+    background-color: #FFFACD;
+}
+.menu {
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #FFC227;
+}
+.menu-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+.menu-label {
+    font-size: 20px;
+    color: #fff;
+}
+.genre__list {
+    margin: -10px 0 0 -10px;
+    text-align: center;
+}
+.genre__item {
+    display: inline-block;
+    padding: 5px;
+    margin: 10px 0 0 10px;
+    color: #fff;
+    border: 1px #fff solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.news-item {
+    padding: 20px 0;
+    color: #fff;
+    border-top: 1px #fff dashed;
+}
+.news-item:first-child {
+    border-top: none;
+}
+.board-form {
+    margin-bottom: 20px;
+}
+.board {
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+.board__title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.board__date {
+    color: #ccc;
+    text-align: right;
+}
+.btn {
+    display: inline-block;
+    padding: 8px;
+    width: 60px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    border-style: none;
+    background-color: #FFC227;
+}
+.submit {
+    padding: 8px;
+    display: inline-block;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 3px;
+    border-style: none;
+    background-color: #FFC227;;
+}
+.input {
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px #ccc solid;
+}
+.article {
+    width: 700px;
+    height: 300px;
+    border-radius: 5px;
+    border: 1px #ccc solid;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 28px;
+    }
+    .main-visual {
+        height: 200px;
+    }
+}
+/*
+board.ejs
+*/
+.board-inner {
+    margin: 0 auto;
+    width: 600px;
+}
+.board-wrapper {
+    margin: 20px 0 0 0;
+    padding: 55px;
+    border: 1px #ccc solid;
+    border-radius: 10px;
+}
+.board-title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+.board-author {
+    margin-bottom: 30px;
+    text-align: right;
+}
+.article__text {
+    line-height: 1.5;
+}
+.article__img {
+    margin: 0 auto 30px auto;
+    display: block;
+}
+.article__date {
+    margin: 30px 0 0 0;
+    text-align: right;
+}
+.board-btn {
+    margin: 20px 0 20px  0;
+}
+.board-top {
+    text-align: center;
+}
+.board-prev {
+    float: left;
+}
+.board-next {
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+
+

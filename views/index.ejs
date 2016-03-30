@@ -1,0 +1,36 @@
+<% layout('layout'); %>
+    <div class="main-visual">
+        <p class="title">Tassel</p>
+    </div>
+    <div class="main clearfix">
+        <div class="menu">
+            <ul class="genre__list clearfix">
+                <li class="genre__item" data-genre-id="all">すべて</li>
+                <% genreList.forEach(function(genreItem) { %>
+                    <li class="genre__item" data-genre-id="<%= genreItem.genre_id %>"><%= genreItem.genre %></li>
+                <% }); %>
+            </ul>
+        </div>
+        <% if (typeof user !== 'undefined') { %>
+            <a href="/create" class="submit">投稿</a>
+            <a href="/logout" class="btn">ログアウト</a>
+            <span class="login-user">ログイン中</span>
+        <% } else { %>
+        <% } %>
+        <div class="main-contents">
+            <ul class="main-list clearfix">
+                <% boardList.forEach(function(boardItem) { %>
+                    <li class="main-list__item" data-genre-id="<%= boardItem.genre_id %>">
+                        <a href="/boards/<%= boardItem.board_id %>" class="board">
+                            <p class="board__title"><%= boardItem.board_title %></p>
+                            <div style="width: 100%; height: 250px; background-position: center; background-size: cover; background-image: url(<%= boardItem.image_path %>);"></div>
+                            <p class="board__date"><%= boardItem.created_at %></p>
+                        </a>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+
+
+

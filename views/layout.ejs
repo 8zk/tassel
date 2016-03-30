@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<link rel='stylesheet' href='/stylesheets/style.css'>
+<title><%= title %></title>
+</head>
+<body>
+<div class="wrapper">
+    <%- body %>
+</div>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>
+$(function() {
+    var $genreItem = $('.genre__item');
+    var $mainListItem = $('.main-list__item');
+    $genreItem.on('click', function() {
+        // 例えば<div data-genre-id="3">
+        // これの取得方法は$(その要素).data('genre-id');
+        var genreId = $(this).data('genre-id');
+        if (genreId === 'all') {
+            $mainListItem.show();
+            return;
+        }
+        $mainListItem.hide();
+        $mainListItem.each(function() {
+            var _genreId = $(this).data('genre-id');
+            if (genreId === _genreId) {
+                $(this).show();
+            }
+        });
+    });
+});
+</script>
+</div>
+</body>
+</html>

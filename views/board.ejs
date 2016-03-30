@@ -1,0 +1,30 @@
+<% layout('layout') %>
+<% if (typeof user !== 'undefined') { %>
+    <span class="login-user">ログイン中</span>
+<% } %>
+<div class="board-inner">
+    <div class="board-wrapper">
+        <p class="board-title"><%= title %></p>
+        <p class="board-author"><%= author %></p>
+            <div class="white-bg">
+                <div class="message">
+                    <img src="<%= board.image_path %>" alt="" class="article__img">
+                    <p class="article__text"><%= board.article %></p>
+                    <p class="article__date"><%= board.created_at %></p>
+                </div>
+            </div>
+    </div>
+    <div class="board-btn clearfix">
+        <% if (board_id > 1) { %>
+        <div class="board-prev">
+            <a href="/boards/<%= board_id - 1 %>" class="btn">Prev</a>
+        </div>
+        <% } %>
+        <div class="board-next">
+            <a href="/boards/<%= board_id + 1 %>" class="btn">Next</a>
+        </div>
+        <div class="board-top">
+            <a href="/" class="btn">Top</a>
+        </div>
+    </div>
+</div>

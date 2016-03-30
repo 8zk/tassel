@@ -1,0 +1,21 @@
+<% layout('layout'); %>
+<form action="/create" method="post" enctype="multipart/form-data" class="board-form">
+    <input type="text" name="board_title" class="input" required><br>
+    <textarea name="article" class="article" required></textarea><br>
+    <select name="genre_id">
+        <% genres.forEach(function(genre) { %>
+            <option value="<%= genre.genre_id %>"><%= genre.genre %></option>
+        <% }); %>
+    </select>
+    <select name="author_id">
+        <% authors.forEach(function(author) { %>
+            <option value="<%= author.author_id %>"><%= author.author %></option>
+        <% }); %>
+    </select>
+    <div class="file-wrap">
+        画像を追加
+        <input type="file" name="image_file" class="file">
+    </div>
+    <button type="submit" class="submit">投稿</button>
+</form>
+<a href="/" class="btn">Top</a>
