@@ -17,6 +17,8 @@ var logout = require('./routes/logout');
 
 var engine = require('ejs-locals');
 
+
+
 var app = express();
 
 // view engine setup
