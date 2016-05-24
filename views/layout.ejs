@@ -9,31 +9,30 @@
 </head>
 <body>
 <div class="wrapper">
-    <%- body %>
+    <div class="main-visual">
+        <p class="title">Tassel</p>
+    </div>
+    <div class="container clearfix">
+        <div class="main">
+            <%- body %>
+        </div>
+        <div class="menu">
+            <p class="menu-title">Category</p>
+            <ul class="genre__list clearfix">
+                <li class="genre__item">
+                    <a href="/genres">すべて</a>
+                </li>
+                <% genreList.forEach(function(genreItem) { %>
+                    <li class="genre__item">
+                        <a href="/genres/<%= genreItem.genre_id %>"><%= genreItem.genre %></a>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
 </div>
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script>
-$(function() {
-    var $genreItem = $('.genre__item');
-    var $mainListItem = $('.main-list__item');
-    $genreItem.on('click', function() {
-        // 例えば<div data-genre-id="3">
-        // これの取得方法は$(その要素).data('genre-id');
-        var genreId = $(this).data('genre-id');
-        if (genreId === 'all') {
-            $mainListItem.show();
-            return;
-        }
-        $mainListItem.hide();
-        $mainListItem.each(function() {
-            var _genreId = $(this).data('genre-id');
-            if (genreId === _genreId) {
-                $(this).show();
-            }
-        });
-    });
-});
-</script>
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/index.js"></script>
 </div>
 </body>
 </html>

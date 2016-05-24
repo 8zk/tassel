@@ -47,7 +47,9 @@ table {
     border-spacing: 0;
 }
 
-
+*, *:before, *:after {
+    box-sizing: border-box;
+}
 
 body {
     font-family: "游ゴシック","YuGothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
@@ -65,99 +67,139 @@ img {
     display: block;
     content: '';
 }
-
+.main-visual {
+    display: table;
+    background-image: url(../images/book2.png);
+    width: 100%;
+    height: 350px;
+    background-position: center;
+    background-size: cover;
+}
 .title {
+    display: table-cell;
+    width: 226px;
+    top: 50%;
+    left: 50%;
+    margin-left: -118px;
+    margin-top: -35px;
     display: table-cell;
     font-family: 'Verdana';
     font-size: 70px;
+    font-family: Georgia;
     font-weight: bold;
     text-align: center;
     color: #fff;
     vertical-align: middle;
 }
-.main {
-    width: 100%;
-}
-.main-visual {
-    display: table;
-    background-image: url(../images/book2.png);
-    width: 100%;
-    height: 300px;
-    background-position: center;
-    background-size: cover;
-}
-.main-contents {
+.container {
+    padding: 40px 0;
     margin: 0 auto;
+    max-width: 1200px;
     width: 100%;
-    max-width: 880px;
+}
+.main {
+    padding-right: 240px;
+    width: 100%;
+    float: left;
+}
+.menu {
+    float: right;
+    margin-left: -200px;
+    width: 200px;
+}
+.menu-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.menu-label {
+    font-size: 20px;
+}
+.genre__list {
+    padding: 20px 0;
+    border-top: 1px #ccc solid;
+    border-bottom: 1px #ccc solid;
+}
+.genre__item {
+    margin-top: 13px;
+    font-size: 13px;
+    cursor: pointer;
+}
+.genre__item:hover {
+    color: #ccc;
+}
+.genre__item:first-child {
+    margin-top: 0;
 }
 .main-list {
-    text-align: center;
     font-size: 0;
 }
 .main-list__item {
     display: inline-block;
-    margin: 10px;
-    width: 200px;
-    height: 320px;
-    border: 1px #ccc solid;
-    box-sizing: border-box;
-    transition: background-color .3s linear;
+    width: 50%;
+    margin-top: 20px;
 }
 .main-list__item:hover {
-    background-color: #FFFACD;
+    filter:alpha(opacity=80);
+    opacity:0.8;
 }
-.menu {
-    padding: 10px;
-    margin-bottom: 20px;
-    background-color: #FFC227;
+.main-list__item:nth-child(-n+2) {
+    margin-top: 0;
 }
-.menu-title {
-    font-size: 30px;
-    font-weight: bold;
-    color: #fff;
+.main-list__item:nth-child(odd) {
+    padding-right: 10px;
 }
-.menu-label {
-    font-size: 20px;
-    color: #fff;
-}
-.genre__list {
-    margin: -10px 0 0 -10px;
-    text-align: center;
-}
-.genre__item {
-    display: inline-block;
-    padding: 5px;
-    margin: 10px 0 0 10px;
-    color: #fff;
-    border: 1px #fff solid;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.news-item {
-    padding: 20px 0;
-    color: #fff;
-    border-top: 1px #fff dashed;
-}
-.news-item:first-child {
-    border-top: none;
-}
-.board-form {
-    margin-bottom: 20px;
+.main-list__item:nth-child(even) {
+    padding-left: 10px;
 }
 .board {
-    display: block;
-    padding: 10px;
+    display: table;
+    width: 100%;
     border-radius: 5px;
+    table-layout: fixed;
+}
+.board__thumb {
+    display: table-cell;
+    width: 180px;
+    height: 250px;
+    background-position: center;
+    background-size: cover; 
+}
+.board__info {
+    position: relative;
+    display: table-cell;
+    width: 100%;
+    padding-left: 10px;
 }
 .board__title {
     margin-bottom: 10px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 400;
+    text-align: left;
+}
+.board__article {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+    line-height: 2;
+}
+.board__bottom {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+.board__genre {
+    margin-right: 11px;
+    float: left;
+    font-size: 12px;
+    color: #ccc;
 }
 .board__date {
+    float: left;
+    font-size: 12px;
     color: #ccc;
-    text-align: right;
 }
 .btn {
     display: inline-block;
@@ -169,7 +211,11 @@ img {
     text-align: center;
     border-radius: 3px;
     border-style: none;
-    background-color: #FFC227;
+    background-color: #4F545F;
+}
+.btn:hover {
+    filter:alpha(opacity=80);
+    opacity:0.8;
 }
 .submit {
     padding: 8px;
@@ -178,7 +224,7 @@ img {
     color: #fff;
     border-radius: 3px;
     border-style: none;
-    background-color: #FFC227;;
+    background-color: #4F545F;
 }
 .input {
     padding: 10px;
@@ -193,38 +239,42 @@ img {
     border: 1px #ccc solid;
 }
 
-@media (max-width: 768px) {
-    .title {
-        font-size: 28px;
-    }
-    .main-visual {
-        height: 200px;
-    }
+.news-item {
+    padding: 20px 0;
+    color: #fff;
+    border-top: 1px #fff dashed;
 }
+.news-item:first-child {
+    border-top: none;
+}
+.board-form {
+    margin-bottom: 20px;
+}
+
 /*
-board.ejs
+  board.ejs
 */
+
 .board-inner {
     margin: 0 auto;
-    width: 600px;
+    padding: 0 40px;
 }
 .board-wrapper {
-    margin: 20px 0 0 0;
-    padding: 55px;
-    border: 1px #ccc solid;
-    border-radius: 10px;
+    margin-bottom: 40px;
 }
 .board-title {
+    margin-bottom: 40px;
     text-align: center;
     font-size: 25px;
-    font-weight: bold;
+    font-weight: 400;
 }
 .board-author {
     margin-bottom: 30px;
-    text-align: right;
+    text-align: center;
 }
 .article__text {
-    line-height: 1.5;
+    line-height: 2;
+    font-size: 15px;
 }
 .article__img {
     margin: 0 auto 30px auto;
@@ -247,13 +297,64 @@ board.ejs
     float: right;
 }
 
+@media (max-width: 1060px) {
+    .main-list__item {
+        width: 100%;
+    }
+    .main-list__item:nth-child(2) {
+        margin-top: 20px;
+    }
+    .main-list__item:nth-child(odd) {
+        padding-right: 0;
+    }
+    .main-list__item:nth-child(even) {
+        padding-left: 0;
+    }
+}
+@media (max-width: 768px) {
+    .main-visual {
+        height: 250px;
+    }
+    .container {
+        padding: 20px 0;
+    }
+    .main {
+        padding-right: 0;
+        padding: 0 10px;
+        width: 100%;
+        float: initial;
+    }
+    .menu {
+        float: initial;
+        padding: 10px;
+        margin-top: 20px;
+        margin-left:initial;
+        width: initial;
+    }
+    .board__info {
+        padding-left: 5px;
+    }
+    .board__thumb {
+    width: 145px;
+    height: 200px;
+    }
+    .board__article {
+        -webkit-line-clamp: 6;
+    }
+    .genre__item {
+        float: left;
+        padding: 5px;
+        margin-top: initial;
+    }
+    .board-inner {
+    margin: 0 auto;
+    padding: 0;
+}
+@media (max-width: 480px) {
+    .main-visual {
+        height: 200px;
+    }
+}
+@media (max-width: 375px) {
 
-
-
-
-
-
-
-
-
-
+}

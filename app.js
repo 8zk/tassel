@@ -6,14 +6,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var index = require('./routes/index');
 var boards = require('./routes/boards');
 var register= require('./routes/register');
 var login = require('./routes/login');
 var create = require('./routes/create');
-var setUser = require('./setUser');
 var logout = require('./routes/logout');
+var genres = require('./routes/genres');
+var setUser = require('./setUser');
+var setGenre = require('./setGenre');
 
 var engine = require('ejs-locals');
 
@@ -37,12 +38,12 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.use('/', setUser, routes);
-app.use('/users', users);
-app.use('/boards', setUser, boards);
+app.use('/', setUser, setGenre, index);
+app.use('/boards', setUser, setGenre, boards);
+app.use('/create', setUser, setGenre, create);
+app.use('/genres', setGenre, genres);
 app.use('/register', register);
 app.use('/login', login);
-app.use('/create', setUser, create);
 app.use('/logout', logout);
 
 // catch 404 and forward to error handler

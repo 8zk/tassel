@@ -3,17 +3,12 @@ var router = express.Router();
 var moment = require('moment');
 var connection = require('../mysqlConnection');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-    var query = 'SELECT *, DATE_FORMAT (created_at, \'%Y-%m-%d %k:%i\') AS created_at FROM boards';
-    var genreQuery = 'SELECT * FROM genres';
+    var query = 'SELECT *, DATE_FORMAT (created_at, \'%Y-%m-%d %k:%i\') AS created_at FROM boards LEFT JOIN genres ON boards.genre_id = genres.genre_id';
     connection.query(query, function(err, rows) {
-        connection.query(genreQuery, function(err, genres) {
-            res.render('index', {
-                title: 'Tassel',
-                boardList: rows,
-                genreList: genres
-            });
+        res.render('index', {
+            title: 'Tassel',
+            boardList: rows,
         });
     });
 });

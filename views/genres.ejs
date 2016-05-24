@@ -6,7 +6,7 @@
 <% } else { %>
 <% } %>
 <ul class="main-list clearfix">
-    <% boardList.forEach(function(boardItem) { %>
+    <% selectBoardList.forEach(function(boardItem) { %>
         <li class="main-list__item" data-genre-id="<%= boardItem.genre_id %>">
             <a href="/boards/<%= boardItem.board_id %>" class="board">
                 <div class="board__thumb" style="background-image: url(<%= boardItem.image_path %>);"></div>
@@ -22,3 +22,4 @@
         </li>
     <% }); %>
 </ul>
+

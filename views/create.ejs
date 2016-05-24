@@ -3,8 +3,8 @@
     <input type="text" name="board_title" class="input" required><br>
     <textarea name="article" class="article" required></textarea><br>
     <select name="genre_id">
-        <% genres.forEach(function(genre) { %>
-            <option value="<%= genre.genre_id %>"><%= genre.genre %></option>
+        <% genreList.forEach(function(genreItem) { %>
+            <option value="<%= genreItem.genre_id %>"><%= genreItem.genre %></option>
         <% }); %>
     </select>
     <select name="author_id">

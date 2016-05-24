@@ -9,17 +9,13 @@ var upload = multer({ dest: './public/images/uploads/' });
 router.get('/', function(req, res, next) {
     var boardId = req.params.board_id;
     var getAuthorQuery = 'SELECT * FROM authors';
-    var getGenresQuery = 'SELECT * FROM genres';
     var getBoardQuery = 'SELECT * FROM boards WHERE board_id = ' + boardId;
-    connection.query(getGenresQuery, function(err, genres) {
-        connection.query(getBoardQuery, function(err, rows) {
-            connection.query(getAuthorQuery, function(err, authors) {
-                res.render('create', {
-                    title: '記事投稿',
-                    board: rows,
-                    genres: genres,
-                    authors:  authors
-                });
+    connection.query(getBoardQuery, function(err, rows) {
+        connection.query(getAuthorQuery, function(err, authors) {
+            res.render('create', {
+                title: '記事投稿',
+                board: rows,
+                authors:  authors
             });
         });
     });

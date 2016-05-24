@@ -1,18 +1,16 @@
-<% layout('layout') %>
+<% layout('layout'); %>
 <% if (typeof user !== 'undefined') { %>
     <span class="login-user">ログイン中</span>
 <% } %>
 <div class="board-inner">
     <div class="board-wrapper">
         <p class="board-title"><%= title %></p>
-        <p class="board-author"><%= author %></p>
-            <div class="white-bg">
-                <div class="message">
-                    <img src="<%= board.image_path %>" alt="" class="article__img">
-                    <p class="article__text"><%= board.article %></p>
-                    <p class="article__date"><%= board.created_at %></p>
-                </div>
-            </div>
+        <div class="message">
+            <img src="<%= board.image_path %>" alt="" class="article__img">
+            <p class="board-author"><%= author %></p>
+            <p class="article__text"><%= board.article %></p>
+            <p class="article__date"><%= board.created_at %></p>
+        </div>
     </div>
     <div class="board-btn clearfix">
         <% if (board_id > 1) { %>
